@@ -35,7 +35,7 @@ class InstaFollower:
         expected_condition = ExpectedConditions.element_to_be_clickable((By.XPATH, xpath_search_input))
         search_input = WebDriverWait(self.driver, 20).until(expected_condition)
         search_input.send_keys(account_to_find)
-        time.sleep(2)
+        time.sleep(4)
         self.driver.find_element_by_class_name("-qQT3").click()
         time.sleep(3)
         self.driver.find_element_by_xpath('//*[@id="react-root"]/section/main/div/header/section/ul/li[2]/a').click()
@@ -44,7 +44,7 @@ class InstaFollower:
                                                                  '/section/ul/li[2]/a/span').get_attribute(
             "title").replace(",", ""))
         element_inside_popup = self.driver.find_element_by_xpath('/html/body/div[6]/div/div/div[2]')
-        for n in range(int(followers_number / 700)):
+        for n in range(int(followers_number / 70)):
             self.driver.execute_script("arguments[0].scrollTop = arguments[0].scrollHeight", element_inside_popup)
             time.sleep(2)
 
